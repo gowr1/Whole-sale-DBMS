@@ -8,22 +8,23 @@
         <div class="bg-image"></div>
         <div class="bg-text">
         <h1>Login to continue</h1>
-        <form>
+        <form method="post" action="login.php">
+            <?php if (isset($_GET['error'])) { ?>
+                <p class="error"><?php echo $_GET['error']; ?></p> 
+            <?php } ?>
             <label id="a" >Username:</label>
-            <input type="text">
+            <input type="text" name="username">
             </br></br>
             <label id="b" >Password:</label>
-            <input type="password">
+            <input type="password" name="password">
              <br></br>
+             <input type="hidden" name="category" value="1">
             <input type="checkbox" id="check"> 
              <span>Remember me</span> 
             </br></br>
-             <a href="sellerpage.html">
-             <input type="button" id="block" value="Login"></a>
-           <p>don't have an account?<h3><a href="newaccs.html" >create new </a></h3>
-             
-            
+            <input type="submit" id="block" value="Login">     
         </form>
+        <p>don't have an account?<h3><a href="newaccs.html" >create new </a></h3>  
     </body>
 </html>
 
