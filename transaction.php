@@ -1,3 +1,6 @@
+<?php
+$transaction_id = $_GET['transaction_id'];
+?>
 <style>
     .transaction-details {
       padding-top: 100px;

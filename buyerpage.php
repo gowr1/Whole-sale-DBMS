@@ -1,3 +1,8 @@
+<?php
+include("database.php");
+$query = "SELECT * FROM product";
+$result = $conn->query($query);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,82 +21,26 @@
             </div>
 
             <div class = "item-list">
+            <?php
+                while($data = $result->fetch_assoc()) {
+            ?>
                 <div class = "item">
                     <div class = "item-img">
-                        <img src = "https://printify.com/wp-content/uploads/2022/11/make-your-tshirt-compressed.gif" width =300 alt="">
+                        <img src = "<?php echo $data['image_url']; ?>" width =300 alt="">
                     </div>
                     <div class = "item-detail">
-                        <a href = "#" class = "item-name">Shirts & Tees</a>
+                        <a href = "#" class = "item-name"><?php echo $data['pname']; ?></a>
                         <div class = "item-price">
-                            <span class = "new-price">Rs.100.00</span>
+                            <span class = "new-price">Rs.<?php echo $data['amount']; ?></span>
                         </div>
                         <div class = "item-price">
-                            <span class = "new-price">Qty:100</span>
+                            <span class = "new-price">Qty:<?php echo $data['stock']; ?></span>
                         </div>
                     </div>
                 </div>
-
-                <div class = "item">
-                    <div class = "item-img">
-                        <img src = "https://akm-img-a-in.tosshub.com/sites/visualstory/stories/2021_03/story_589/assets/3.gif?time=1615134509"width=350 alt="">
-                    </div>
-                    <div class = "item-detail">
-                        <a href = "#" class = "item-name">Pants & Jeans</a>
-                        <div class = "item-price">
-                            <span class = "new-price">Rs 100.00</span>
-                        </div>
-                        <div class = "item-price">
-                            <span class = "new-price">Qty:100</span>
-                        </div>
-                     </div>
-                </div>
-
-                <div class = "item">
-                    <div class = "item-img">
-                        <img src = "https://hips.hearstapps.com/ell.h-cdn.co/assets/17/09/1488298612-floral-dresses.gif"  alt="">
-                    </div>
-                    <div class = "item-detail">
-                        <a href = "#" class = "item-name">Dresses</a>
-                        <div class = "item-price">
-                            <span class = "new-price">Rs 100.00</span>
-                        </div>
-                        <div class = "item-price">
-                            <span class = "new-price">Qty:100</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class = "item">
-                    <div class = "item-img">
-                        <img src = "https://cdn.shopify.com/s/files/1/0583/5007/6053/files/Light-up.gif?v=1675307708"alt="">
-                    </div>
-                    <div class = "item-detail">
-                        <a href = "#" class = "item-name">Shoes</a>
-                        <div class = "item-price">
-                            <span class = "new-price">Rs100.00</span>                            
-                          </div>
-                          <div class = "item-price">
-                            <span class = "new-price">Qty:100</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class = "item">
-                    <div class = "item-img">
-                        <img src = "https://media.tenor.com/MsXeLJBouJgAAAAC/orthopedic-sandal-barefoot-sandals.gif" alt="">
-                    </div>
-                    <div class = "item-detail">
-                        <a href = "#" class = "item-name">Sandals</a>
-                        <div class = "item-price">
-                            <span class = "new-price">Rs 100.0</span>
-                        </div>
-                        <div class = "item-price">
-                            <span class = "new-price">Qty:100</span>
-                        </div>
-                    </div>
-                </div>
-
-                
+                <?php
+                    }
+                ?>
             </div>
         </div>
   </div>
@@ -101,102 +50,101 @@
 </div>	
 </br>
 <div class="row">
-<form>
+<form action="add_product.php" method="post">
 <fieldset id="f1">
     <label id="iname">Shirts and Tees</label>
 
     <label id="qty">Quantity</label>
-    <input type="text" placeholder="100" class="form-control" id="quantity" name="">
+    <input type="text" placeholder="100" class="form-control" id="quantity" name="quantity1">
 
     <label id="up">Unit Price</label>
-    <input type="text" class="form-control" id="price" name="">
+    <input type="text" class="form-control" id="price" name="price1">
 
     </br>
     <p>Do you want to buy this?:</p>
-      <input type="radio" id="yes" name="yes or no" value="yes">
+      <input type="radio" id="yes" name="yes_or_no1" value="1">
       <label for="html">Yes</label>
-      <input type="radio" id="no" name="yes or no" value="no">
+      <input type="radio" id="no" name="yes_or_no1" value="0" checked>
       <label for="css">No</label><br>
     <label id="tp">Total Price</label>
-    <input type="" id="totp" name="">
+    <input type="" id="totp" name="totp1">
 </fieldset>  
 <br>
 <fieldset id="f2">
     <label id="iname">Pants and Jeans</label>
-
     <label id="qty">Quantity</label>
-    <input type="text" placeholder="100" class="form-control" id="quantity" name="">
+    <input type="text" placeholder="100" class="form-control" id="quantity" name="quantity2">
 
     <label id="up">Unit Price</label>
-    <input type="text" class="form-control" id="price" name="">
-</br>
-<p>Do you want to buy this?:</p>
-  <input type="radio" id="yes" name="yes or no" value="yes">
-  <label for="html">Yes</label>
-  <input type="radio" id="no" name="yes or no" value="no">
-  <label for="css">No</label><br>
-<label id="tp">Total Price</label>
-<input type="" id="totp" name="">
+    <input type="text" class="form-control" id="price" name="price2">
+
+    </br>
+    <p>Do you want to buy this?:</p>
+      <input type="radio" id="yes" name="yes_or_no2" value="1">
+      <label for="html">Yes</label>
+      <input type="radio" id="no" name="yes_or_no2" value="0" checked>
+      <label for="css">No</label><br>
+    <label id="tp">Total Price</label>
+    <input type="" id="totp" name="totp2">
 </fieldset>  
 <br>
 <fieldset id="f3">
     <label id="iname">Dresses</label>
-    <label id="qty">Quantity</label>
-    <input type="text" placeholder="100" class="form-control" id="quantity" name="">
+    <input type="text" placeholder="100" class="form-control" id="quantity" name="quantity3">
 
     <label id="up">Unit Price</label>
-    <input type="text" class="form-control" id="price" name="">
+    <input type="text" class="form-control" id="price" name="price3">
 
-</br>
-<p>Do you want to buy this?:</p>
-  <input type="radio" id="yes" name="yes or no" value="yes">
-  <label for="html">Yes</label>
-  <input type="radio" id="no" name="yes or no" value="no">
-  <label for="css">No</label><br>
-<label id="tp">Total Price</label>
-<input type="" id="totp" name="">
+    </br>
+    <p>Do you want to buy this?:</p>
+      <input type="radio" id="yes" name="yes_or_no3" value="1">
+      <label for="html">Yes</label>
+      <input type="radio" id="no" name="yes_or_no3" value="0" checked>
+      <label for="css">No</label><br>
+    <label id="tp">Total Price</label>
+    <input type="" id="totp" name="totp3">
 </fieldset>  
 <br>
 <fieldset id="f4">
     <label id="iname">Shoes</label>
 
-    <label id="qty">Quantity</label>
-    <input type="text" placeholder="100" class="form-control" id="quantity" name="">
+    <input type="text" placeholder="100" class="form-control" id="quantity" name="quantity4">
 
     <label id="up">Unit Price</label>
-    <input type="text" class="form-control" id="price" name="">
+    <input type="text" class="form-control" id="price" name="price4">
 
-</br>
-<p>Do you want to buy this?:</p>
-  <input type="radio" id="yes" name="yes or no" value="yes">
-  <label for="html">Yes</label>
-  <input type="radio" id="no" name="yes or no" value="no">
-  <label for="css">No</label><br>
-<label id="tp">Total Price</label>
-<input type="" id="totp" name="">
+    </br>
+    <p>Do you want to buy this?:</p>
+      <input type="radio" id="yes" name="yes_or_no4" value="1">
+      <label for="html">Yes</label>
+      <input type="radio" id="no" name="yes_or_no4" value="0" checked>
+      <label for="css">No</label><br>
+    <label id="tp">Total Price</label>
+    <input type="" id="totp" name="totp4">
 </fieldset> 
 </br>
 <fieldset id="f5">
     <label id="iname">Sandals</label>
 
-    <label id="qty">Quantity</label>
-    <input type="text" placeholder="100" class="form-control" id="quantity" name="">
+    <input type="text" placeholder="100" class="form-control" id="quantity" name="quantity5">
 
     <label id="up">Unit Price</label>
-    <input type="text" class="form-control" id="price" name="">
-</br>
-<p>Do you want to buy this?:</p>
-  <input type="radio" id="yes" name="yes or no" value="yes">
-  <label for="html">Yes</label>
-  <input type="radio" id="no" name="yes or no" value="no">
-  <label for="css">No</label><br>
-<label id="tp">Total Price</label>
-<input type="" id="totp" name="">
+    <input type="text" class="form-control" id="price" name="price5">
+
+    </br>
+    <p>Do you want to buy this?:</p>
+      <input type="radio" id="yes" name="yes_or_no5" value="1">
+      <label for="html">Yes</label>
+      <input type="radio" id="no" name="yes_or_no5" value="0" checked>
+      <label for="css">No</label><br>
+    <label id="tp">Total Price</label>
+    <input type="" id="totp" name="totp5">
 </fieldset>  
 <br> 
 <br>
+<input type="submit" id="trans" class="btn btn-success" value="Done">
 </form>
-<button type="button" id="trans" class="btn btn-success"><a href="transaction.html">Done</button>
+
 </div>
 
 </body>

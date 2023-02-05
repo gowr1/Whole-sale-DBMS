@@ -29,6 +29,7 @@
     while($row = $result->fetch_assoc()) {
       if ($row['user_name'] === $email && $row['password'] === $pswrd) {
           $_SESSION['user_name'] = $row['user_name'];
+          $_SESSION['uid'] = $row['uid'];
         }
     }
     if ($category == 1) {
