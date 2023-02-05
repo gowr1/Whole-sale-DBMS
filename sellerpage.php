@@ -7,94 +7,17 @@
 
 </head>
 <body>
-
+<div class=tot>    
+<form>
 <div class="container">
     <h1>Input your stocks</h1>
 </div>	
 </br>
 <div class="row">
 <form>
-	<fieldset id="f1">
-		<label id="iname">Item Name</label>
-        <select>
-            <option selected>Shirts and Tees</option>
-            <option>Pants and Jeans</option>
-            <option>Dresses</option>
-            <option>Shoes</option>
-            <option>Sandals</option>
-        </select>
-
-		<label id="qty">Quantity</label>
-		<input type="text" placeholder="100" class="form-control" id="quantity" name="">
-
-        <label id="up">Unit Price</label>
-		<input type="text" class="form-control" id="price" name="">
-
-        <label id="tp">Total Price</label>
-		<input type="" id="totp" name="">
-    </fieldset>  
-<br>
-<fieldset id="f2">
-    <label id="iname">Item Name</label>
-    <select>
-        <option selected>Shirts and Tees</option>
-        <option>Pants and Jeans</option>
-        <option>Dresses</option>
-        <option>Shoes</option>
-        <option>Sandals</option>
-    </select>
-
-    <label id="qty">Quantity</label>
-    <input type="text" placeholder="100" class="form-control" id="quantity" name="">
-
-    <label id="up">Unit Price</label>
-    <input type="text" class="form-control" id="price" name="">
-
-    <label id="tp">Total Price</label>
-    <input type="" id="totp" name="">
-</fieldset>  
-<br>
-<fieldset id="f3">
-    <label id="iname">Item Name</label>
-    <select>
-        <option selected>Shirts and Tees</option>
-        <option>Pants and Jeans</option>
-        <option>Dresses</option>
-        <option>Shoes</option>
-        <option>Sandals</option>
-    </select>
-
-    <label id="qty">Quantity</label>
-    <input type="text" placeholder="100" class="form-control" id="quantity" name="">
-
-    <label id="up">Unit Price</label>
-    <input type="text" class="form-control" id="price" name="">
-
-    <label id="tp">Total Price</label>
-    <input type="" id="totp" name="">
-</fieldset>  
-<br>
-<fieldset id="f4">
-    <label id="iname">Item Name</label>
-    <select>
-        <option selected>Shirts and Tees</option>
-        <option>Pants and Jeans</option>
-        <option>Dresses</option>
-        <option>Shoes</option>
-        <option>Sandals</option>
-    </select>
-    <label id="qty">Quantity</label>
-    <input type="text" placeholder="100" class="form-control" id="quantity" name="">
-
-    <label id="up">Unit Price</label>
-    <input type="text" class="form-control" id="price" name="">
-
-    <label id="tp">Total Price</label>
-    <input type="" id="totp" name="">
-</fieldset>  
 <br>
 <fieldset id="f5">
-    <label id="iname">Item Name</label>
+    <label id="iname">Item Name</label></br>
     <select>
         <option selected>Shirts and Tees</option>
         <option>Pants and Jeans</option>
@@ -102,19 +25,21 @@
         <option>Shoes</option>
         <option>Sandals</option>
     </select>
-
-    <label id="qty">Quantity</label>
+    </br></br></br></br>
+    <label id="qty">Quantity</label></br>
     <input type="text" placeholder="100" class="form-control" id="quantity" name="">
-
-    <label id="up">Unit Price</label>
+    </br></br></br></br>
+    <label id="up">Unit Price</label></br>
     <input type="text" class="form-control" id="price" name="">
-
-    <label id="tp">Total Price</label>
+    </br></br></br></br>
+    <label id="tp">Total Price</label></br>
     <input type="" id="totp" name="">
 </fieldset>  
 <br>
 </form>
 <button type="button" id="trans" class="btn btn-success"><a href="transaction.html">Done</button>
+</div>
+</form>
 </div>
 </body>
 </html>
