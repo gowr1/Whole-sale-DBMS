@@ -34,7 +34,7 @@
     }
     if ($category == 1) {
       $_SESSION['category'] = 'Seller';
-      header("Location: sellerpage.html");
+      header("Location: sellerpage.php");
       exit();
     } else if ($category == 0) {
       $_SESSION['category'] = 'Buyer';

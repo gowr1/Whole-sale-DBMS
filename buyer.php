@@ -25,7 +25,7 @@
         
             </br></br>
              <input type="submit" id="block" value="Login">
-           <p>don't have an account?<h3><a href="newaccb.html" >create new </a></h3>
+           <p>don't have an account?<h3><a href="newaccb.php" >create new </a></h3>
          </form>
     </body>
 </html>
