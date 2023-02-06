@@ -240,12 +240,13 @@ h2{
 #qty,#up,#tp{
     padding-left: 5em;
 }
-button{
+input[type=submit] {
     background-color: rgb(255, 178, 85);
     width: 100px;
     height: 50px;
     border-style: unset;
     border-radius: 10%;
+    color: cornsilk;
 }
 a{
     text-decoration: none;

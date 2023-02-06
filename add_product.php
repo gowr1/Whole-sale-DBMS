@@ -1,8 +1,8 @@
 <?php
 include("database.php");
 session_start();
-// $uid = $_SESSION['uid'];
-$uid = 1001;
+//$uidadd = $_SESSION['u_id'];
+$uidadd = 1001;
 $quantity1 = $_POST['quantity1'];
 $price1 = $_POST['price1'];
 $yes_or_no1 = $_POST['yes_or_no1'];
@@ -36,29 +36,45 @@ if ($yes_or_no1) {
     if (!$conn->query($qry1) === TRUE) {  
         echo "Error: " . $qry1 . "<br>" . $conn->error;
     }
-    $query .= "(10000, $uid, $quantity1, $amt1, NULL,'$date'),";
+    $query .= "(10000, $uidadd, $quantity1, $amt1, NULL,'$date'),";
 }
 
 if ($yes_or_no2) {
     $amt2 = $quantity2 * $price2;
-    $query .= "(10000, $uid, $quantity2, $amt2, NULL,'$date'),";
+    $qry2 = "UPDATE `product` SET stock= stock + $quantity2 WHERE pid = 20000";
+    if (!$conn->query($qry2) === TRUE) {  
+        echo "Error: " . $qry2 . "<br>" . $conn->error;
+    }
+    $query .= "(20000, $uidadd, $quantity2, $amt2, NULL,'$date'),";
 }
 if ($yes_or_no3) {
     $amt3 = $quantity3 * $price3;
-    $query .= "(10000, $uid, $quantity3, $amt3, NULL,'$date'),";
+    $qry3 = "UPDATE `product` SET stock= stock + $quantity3 WHERE pid = 30000";
+    if (!$conn->query($qry3) === TRUE) {  
+        echo "Error: " . $qry3 . "<br>" . $conn->error;
+    }
+    $query .= "(30000, $uidadd, $quantity3, $amt3, NULL,'$date'),";
 }
 if ($yes_or_no4) {
     $amt4 = $quantity4 * $price4;
-    $query .= "(10000, $uid, $quantity4, $amt4, NULL,'$date'),";
+    $qry4 = "UPDATE `product` SET stock= stock + $quantity4 WHERE pid = 40000";
+    if (!$conn->query($qry4) === TRUE) {  
+        echo "Error: " . $qry4 . "<br>" . $conn->error;
+    }
+    $query .= "(40000, $uidadd, $quantity4, $amt4, NULL,'$date'),";
 }
 if ($yes_or_no5) {
     $amt5 = $quantity5 * $price5;
-    $query .= "(10000, $uid, $quantity5, $amt5, NULL,'$date'),";
+    $qry5 = "UPDATE `product` SET stock= stock + $quantity5 WHERE pid = 50000";
+    if (!$conn->query($qry5) === TRUE) {  
+        echo "Error: " . $qry5 . "<br>" . $conn->error;
+    }
+    $query .= "(50000, $uidadd, $quantity5, $amt5, NULL,'$date'),";
 }
 $query = rtrim($query, ',');
-$transactionId =  mysql_insert_id();
+//$transactionId =  mysql_insert_id();
 if ($conn->query($query) === TRUE) {
-        header("Location: transaction.php?transaction_id=$transactionId");
+        header("Location: transaction.php");//?transaction_id=$transactionId");
       exit();
   } else {
     echo "Error: " . $query . "<br>" . $conn->error;

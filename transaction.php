@@ -1,5 +1,5 @@
 <?php
-$transaction_id = $_GET['transaction_id'];
+//$transaction_id = $_GET['transaction_id'];
 ?>
 <style>
     .transaction-details {

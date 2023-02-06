@@ -29,7 +29,7 @@
     while($row = $result->fetch_assoc()) {
       if ($row['user_name'] === $email && $row['password'] === $pswrd) {
           $_SESSION['user_name'] = $row['user_name'];
-          $_SESSION['uid'] = $row['uid'];
+          $_SESSION['u_id'] = $row['uid'];
         }
     }
     if ($category == 1) {
@@ -38,7 +38,7 @@
       exit();
     } else if ($category == 0) {
       $_SESSION['category'] = 'Buyer';
-      header("Location: buyerpage.html");
+      header("Location: buyerpage.php");
       exit();
     }
 }

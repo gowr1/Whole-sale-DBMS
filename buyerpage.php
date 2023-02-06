@@ -10,6 +10,14 @@ $result = $conn->query($query);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stocks</title>
+    <style>input[type=submit] {
+    background-color: rgb(255, 178, 85);
+    width: 100px;
+    height: 50px;
+    border-style: unset;
+    border-radius: 10%;
+    color: cornsilk;
+    }</style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel = "stylesheet" href = "stylebp.css">
 </head>
@@ -90,6 +98,7 @@ $result = $conn->query($query);
 <br>
 <fieldset id="f3">
     <label id="iname">Dresses</label>
+    <label id="qty">Quantity</label>
     <input type="text" placeholder="100" class="form-control" id="quantity" name="quantity3">
 
     <label id="up">Unit Price</label>
@@ -107,7 +116,7 @@ $result = $conn->query($query);
 <br>
 <fieldset id="f4">
     <label id="iname">Shoes</label>
-
+    <label id="qty">Quantity</label>
     <input type="text" placeholder="100" class="form-control" id="quantity" name="quantity4">
 
     <label id="up">Unit Price</label>
@@ -125,7 +134,7 @@ $result = $conn->query($query);
 </br>
 <fieldset id="f5">
     <label id="iname">Sandals</label>
-
+    <label id="qty">Quantity</label>
     <input type="text" placeholder="100" class="form-control" id="quantity" name="quantity5">
 
     <label id="up">Unit Price</label>
@@ -142,7 +151,7 @@ $result = $conn->query($query);
 </fieldset>  
 <br> 
 <br>
-<input type="submit" id="trans" class="btn btn-success" value="Done">
+<input type="submit" id="trans" class="btn_btn-success" value="Done">
 </form>
 
 </div>
