@@ -25,12 +25,12 @@
 <br>
 <fieldset id="f5">
     <label id="iname">Item Name</label></br>
-    <select>
-        <option selected name= "name" value=1>Shirts and Tees</option>
-        <option name= "name" value=2>Pants and Jeans</option>
-        <option name= "name" value=3>Dresses</option>
-        <option name= "name" value=4>Shoes</option>
-        <option name= "name" value=5>Sandals</option>
+    <select name="name">
+        <option selected value=1>Shirts and Tees</option>
+        <option value=2>Pants and Jeans</option>
+        <option value=3>Dresses</option>
+        <option value=4>Shoes</option>
+        <option value=5>Sandals</option>
     </select>
     </br></br></br></br>
     <label id="qty">Quantity</label></br>
