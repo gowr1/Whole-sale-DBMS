@@ -11,7 +11,7 @@
   $saddress = $_POST['saddress'];
   $phn = $_POST['phn'];
   
-  $query = "INSERT INTO `user`(`uid`,`user_name`, `email`, `password`, `catagory`, `address`, `phone_no`) VALUES ";
+  $query = "INSERT INTO `user`(`user_name`, `email`, `password`, `catagory`, `address`, `phone_no`) VALUES ";
   //$result = $result + 1;
   $query .= "('$name','$email','$password','$buyer_seller','$saddress','$phn')";
   if($buyer_seller){
