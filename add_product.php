@@ -32,7 +32,7 @@ $query = "INSERT INTO `transaction`(`pidt`, `uidt`, `qty`, `amt`, `ip_date`, `or
 
 if ($yes_or_no1) {
     $amt1 = $quantity1 * $price1;
-    $qry1 = "UPDATE `product` SET stock= stock + $quantity1 WHERE pid = 10000";
+    $qry1 = "UPDATE `product` SET stock= stock - $quantity1 WHERE pid = 10000";
     if (!$conn->query($qry1) === TRUE) {  
         echo "Error: " . $qry1 . "<br>" . $conn->error;
     }
@@ -41,7 +41,7 @@ if ($yes_or_no1) {
 
 if ($yes_or_no2) {
     $amt2 = $quantity2 * $price2;
-    $qry2 = "UPDATE `product` SET stock= stock + $quantity2 WHERE pid = 20000";
+    $qry2 = "UPDATE `product` SET stock= stock - $quantity2 WHERE pid = 20000";
     if (!$conn->query($qry2) === TRUE) {  
         echo "Error: " . $qry2 . "<br>" . $conn->error;
     }
@@ -49,7 +49,7 @@ if ($yes_or_no2) {
 }
 if ($yes_or_no3) {
     $amt3 = $quantity3 * $price3;
-    $qry3 = "UPDATE `product` SET stock= stock + $quantity3 WHERE pid = 30000";
+    $qry3 = "UPDATE `product` SET stock= stock - $quantity3 WHERE pid = 30000";
     if (!$conn->query($qry3) === TRUE) {  
         echo "Error: " . $qry3 . "<br>" . $conn->error;
     }
@@ -57,7 +57,7 @@ if ($yes_or_no3) {
 }
 if ($yes_or_no4) {
     $amt4 = $quantity4 * $price4;
-    $qry4 = "UPDATE `product` SET stock= stock + $quantity4 WHERE pid = 40000";
+    $qry4 = "UPDATE `product` SET stock= stock - $quantity4 WHERE pid = 40000";
     if (!$conn->query($qry4) === TRUE) {  
         echo "Error: " . $qry4 . "<br>" . $conn->error;
     }
@@ -65,7 +65,7 @@ if ($yes_or_no4) {
 }
 if ($yes_or_no5) {
     $amt5 = $quantity5 * $price5;
-    $qry5 = "UPDATE `product` SET stock= stock + $quantity5 WHERE pid = 50000";
+    $qry5 = "UPDATE `product` SET stock= stock - $quantity5 WHERE pid = 50000";
     if (!$conn->query($qry5) === TRUE) {  
         echo "Error: " . $qry5 . "<br>" . $conn->error;
     }

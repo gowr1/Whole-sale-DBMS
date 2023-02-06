@@ -58,8 +58,7 @@
           <td>02/03/2023</td>
         </tr>
         <tr>
-        <tr>
-          <td><strong>Product Id</strong></td>
+          <td><strong>Product Name</strong></td>
           <td>productid</td>
         </tr>
         <tr>
