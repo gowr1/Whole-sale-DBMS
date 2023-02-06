@@ -1,6 +1,8 @@
 <?php
  session_start(); 
   include("database.php");
+ /* $qry = "SELECT * FROM product";
+  $result = $conn->query($qry);*/
 
   $name = $_POST['name'];
   $email = $_POST['email'];
@@ -9,7 +11,8 @@
   $saddress = $_POST['saddress'];
   $phn = $_POST['phn'];
   
-  $query = "INSERT INTO `user`(`user_name`, `email`, `password`, `catagory`, `address`, `phone_no`) VALUES ";
+  $query = "INSERT INTO `user`(`uid`,`user_name`, `email`, `password`, `catagory`, `address`, `phone_no`) VALUES ";
+  //$result = $result + 1;
   $query .= "('$name','$email','$password','$buyer_seller','$saddress','$phn')";
   if($buyer_seller){
   if ($conn->query($query) === TRUE) {
