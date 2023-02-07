@@ -1,3 +1,13 @@
+<?php
+include("database.php");
+session_start();
+if(!isset($_SESSION["login"]) || ($_SESSION["category"] != 'Seller')) {
+    header("Location: seller.php?error=Your session expired. Login again");
+    exit();
+}
+$query = "SELECT * FROM product";
+$result = $conn->query($query);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,21 +36,21 @@
 <fieldset id="f5">
     <label id="iname">Item Name</label></br>
     <select name="name">
-        <option selected value=1>Shirts and Tees</option>
-        <option value=2>Pants and Jeans</option>
-        <option value=3>Dresses</option>
-        <option value=4>Shoes</option>
-        <option value=5>Sandals</option>
+        <?php
+            while($data = $result->fetch_assoc()) {
+        ?>
+        <option value="<?php echo $data['pid'] ?>"><?php echo $data['pname'] ?></option>
+        <?php } ?>
     </select>
     </br></br></br></br>
     <label id="qty">Quantity</label></br>
-    <input type="text" placeholder="100" class="form-control" id="quantity" name="quantity">
+    <input type="text" placeholder="" class="form-control" id="quantity" name="quantity">
     </br></br></br></br>
     <label id="up">Unit Price</label></br>
-    <input type="text" class="form-control" id="price" name="price">
+    <input type="text" class="form-control" id="price" name="price" value="">
     </br></br></br></br>
     <label id="tp">Total Price</label></br>
-    <input type="" id="totp" name="totp">
+    <input type="" id="totp" name="totp" value="0">
 </fieldset>  
 <br>
 <input type="submit" id="trans" class="btn btn-success" value="Done">

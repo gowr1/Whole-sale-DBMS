@@ -1,8 +1,12 @@
 <?php
 include("database.php");
 session_start();
-//$uidadd = $_SESSION['u_id'];
-$uidadd = 1002;
+if(!isset($_SESSION["login"]) || ($_SESSION["category"] != 'Buyer')) {
+    header("Location: buyer.php?error=Your session expired. Login again");
+    exit();
+}
+$uidadd = $_SESSION['u_id'];
+
 $quantity1 = $_POST['quantity1'];
 $price1 = $_POST['price1'];
 $yes_or_no1 = $_POST['yes_or_no1'];
@@ -72,10 +76,10 @@ if ($yes_or_no5) {
     $query .= "(50000, $uidadd, $quantity5, $amt5, NULL,'$date'),";
 }
 $query = rtrim($query, ',');
-//$transactionId =  mysql_insert_id();
 if ($conn->query($query) === TRUE) {
-        header("Location: transaction.php");//?transaction_id=$transactionId");
-      exit();
+    $transactionId =  $conn->insert_id;
+    header("Location: transaction.php?transaction_id=$transactionId");
+    exit();
   } else {
     echo "Error: " . $query . "<br>" . $conn->error;
   }

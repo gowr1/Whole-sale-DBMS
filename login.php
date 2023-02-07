@@ -26,19 +26,15 @@
       exit();
     }
   } else {
-    while($row = $result->fetch_assoc()) {
-      if ($row['user_name'] === $email && $row['password'] === $pswrd) {
-          $_SESSION['user_name'] = $row['user_name'];
-          $_SESSION['u_id'] = $row['uid'];
-        }
-    }
-    if ($category == 1) {
-      $_SESSION['category'] = 'Seller';
-      header("Location: sellerpage.php");
-      exit();
-    } else if ($category == 0) {
-      $_SESSION['category'] = 'Buyer';
-      header("Location: buyerpage.php");
+    $_SESSION['login'] = 1;
+    $row = $result->fetch_array();
+    if($row)
+    {
+      $_SESSION['user_name'] = $row['user_name'];
+      $_SESSION['u_id'] = $row['uid'];
+      $_SESSION['category'] = $category ? 'Seller' : 'Buyer';
+      $nextPage = $category ? 'sellerpage.php' : 'buyerpage.php';
+      header("Location: $nextPage");
       exit();
     }
 }

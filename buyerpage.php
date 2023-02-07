@@ -1,5 +1,10 @@
 <?php
 include("database.php");
+session_start();
+if(!isset($_SESSION["login"])($_SESSION["category"] != 'Buyer')) {
+    header("Location: buyer.php?error=Your session expired. Login again");
+    exit();
+}
 $query = "SELECT * FROM product";
 $result = $conn->query($query);
 ?>
