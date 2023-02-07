@@ -1,7 +1,7 @@
 <?php
 include("database.php");
 session_start();
-if(!isset($_SESSION["login"])($_SESSION["category"] != 'Buyer')) {
+if(!isset($_SESSION["login"]) || ($_SESSION["category"] != 'Buyer')) {
     header("Location: buyer.php?error=Your session expired. Login again");
     exit();
 }

@@ -1,3 +1,24 @@
+<?php
+include("database.php");
+session_start();
+if(!isset($_SESSION["login"])) {
+    header("Location: buyer.php?error=Your session expired. Login again");
+    exit();
+}
+$transaction_id = $_GET['transaction_id'];
+$query = "SELECT * FROM transaction JOIN product ON transaction.pidt = product.pid JOIN user ON transaction.uidt = user.uid WHERE tid = $transaction_id";
+$result = $conn->query($query);
+$date = $user_name = $user_addr = $user_phone = '';
+$amount = 0;
+while($data = $result->fetch_array()) {
+  $inpDate = ($_SESSION["category"] == 'Seller') ? $data['ip_date'] : $data['order_date'];
+  $date = date('d/m/Y', strtotime($inpDate));
+  $amount += $data['amt'];
+  $user_name = $data['user_name'];
+  $user_addr = $data['address'];
+  $user_phone = $data['phone_no'];
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -29,10 +50,10 @@
                 <div class="col-10">
                     <div class="row bb pb-3">
                         <div class="col-7">
-                             <p>Seller</p> 
-                            <h2> Sam Jacob</h2>
-                            <p class="address"> A-line colony, <br> kochin <br>kerala </p>
-                            <div class="txn mt-2">PHN: 9466735692</div>
+                             <p><?php echo $_SESSION["category"]; ?></p> 
+                            <h2> <?php echo $user_name ?></h2>
+                            <p class="address"><?php echo $user_addr ?></p>
+                            <div class="txn mt-2">PHN: <?php echo $user_phone ?></div>
                         </div>
                          <!-- <div class="col-5">  
                             <p>Buyer,</p>
@@ -47,7 +68,7 @@
                             <!-- <p>Order Number: <span>#868</span></p> -->
                         </div>
                         <div class="col-5">
-                            <p>Ordered Date: <span>07-02-2022</span></p>
+                            <p>Ordered Date: <span><?php echo $date ?></span></p>
                         </div>
                     </div>
                 </div>
@@ -64,36 +85,29 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        $result = $conn->query($query);
+                        $i = 1;
+                        while($data = $result->fetch_array()) {
+                            ?>
                         <tr>
                             <td>
                                 <div class="media">
-                                    <p class="mt-2 item">1</p>
+                                    <p class="mt-2 item"><?php echo $i ?></p>
                                 
                                     <div class="media-body">
-                                        <p class="mt-0 title">Dresses</p>
+                                        <p class="mt-0 title"><?php echo $data['pname'] ?></p>
                                     </div>
                                 </div>
                             </td>
-                            <td>8000</td>
-                            <td>100</td>
-                            <td>80000</td>
+                            <td><?php echo $data['qty']; ?></td>
+                            <td><?php echo $data['amount']; ?></td>
+                            <td><?php echo $data['amt']; ?></td>
                         </tr>
-                        <!-- <tr> 
-                            
-                         <td>
-                            
-                                <div class="media">
-                                <p class="mt-2 item">2</p>
-                                    <div class="media-body">
-                                        
-                                        <p class="mt-0 title">Sandals</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>100</td>
-                            <td>20</td>
-                            <td>2000</td>
-                        </tr>-->
+                        <?php 
+                        $i++;
+                        }
+                        ?>
                     </tbody>
                 </table>
             </section>
@@ -108,7 +122,7 @@
                         
                                 <tr>
                                     <td>Total:</td>
-                                    <td>80000</td>
+                                    <td><?php echo $amount ?></td>
                                 </tr>
                             </tfoot>
                         </table>

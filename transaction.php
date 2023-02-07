@@ -96,5 +96,5 @@ $product_name = rtrim($product_name, ', ');
         </tr>
       </table>
     </br>
-      <button><a href="invoice.html">Print Receipt</a></button>
+      <button><a href="invoice.php?transaction_id=<?php echo $transaction_id; ?>">Print Receipt</a></button>
     </div>
