@@ -51,23 +51,25 @@
     
         <tr>
           <td><strong>Transaction ID</strong></td>
-          <td>123456</td>
+          <td>2</td>
         </tr>
         <tr>
           <td><strong>Date</strong></td>
-          <td>02/03/2023</td>
+          <td>07/02/2023</td>
         </tr>
         <tr>
           <td><strong>Product Name</strong></td>
-          <td>productid</td>
+          <td>Dresses</td>
+          <!-- <td>Shoes</td> -->
         </tr>
         <tr>
           <td><strong>Quantity</strong></td>
-          <td>quantity</td>
+          <td>100</td>
+          <!-- <td>200</td> -->
         </tr>
     
           <td><strong>Total Amount</strong></td>
-          <td>RS 100.00</td>
+          <td>RS 80000.00</td>
         </tr>
         <tr>
           <td><strong>Payment Status</strong></td>

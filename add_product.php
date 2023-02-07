@@ -2,7 +2,7 @@
 include("database.php");
 session_start();
 //$uidadd = $_SESSION['u_id'];
-$uidadd = 1001;
+$uidadd = 1002;
 $quantity1 = $_POST['quantity1'];
 $price1 = $_POST['price1'];
 $yes_or_no1 = $_POST['yes_or_no1'];
