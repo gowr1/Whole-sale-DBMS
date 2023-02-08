@@ -14,9 +14,9 @@ while($data = $result->fetch_array()) {
   $inpDate = ($_SESSION["category"] == 'Seller') ? $data['ip_date'] : $data['order_date'];
   $date = date('d/m/Y', strtotime($inpDate));
   $amount += $data['amt'];
-  $user_name = $data['user_name'];
-  $user_addr = $data['address'];
-  $user_phone = $data['phone_no'];
+  $name = $data['user_name'];
+  $address = $data['address'];
+  $ph = $data['phone_no'];
 }
 ?>
 <!doctype html>
@@ -51,15 +51,10 @@ while($data = $result->fetch_array()) {
                     <div class="row bb pb-3">
                         <div class="col-7">
                              <p><?php echo $_SESSION["category"]; ?></p> 
-                            <h2> <?php echo $user_name ?></h2>
-                            <p class="address"><?php echo $user_addr ?></p>
-                            <div class="txn mt-2">PHN: <?php echo $user_phone ?></div>
+                            <h2> <?php echo $name ?></h2>
+                            <p class="address"><?php echo $address ?></p>
+                            <div class="txn mt-2">PHN: <?php echo $ph ?></div>
                         </div>
-                         <!-- <div class="col-5">  
-                            <p>Buyer,</p>
-                            <h2>Helen Thomas</h2>
-                            <p class="address"> Heaven, <br> Joy Nagar, <br>Calicut </p>
-                            <div class="txn mt-2">PHN: 909872278</div> -->
                          </div>
                     </div>
                     <div class="row extra-info pt-3">
