@@ -8,7 +8,7 @@ The Course: Database Management System
 
 SUBMITTED BY:
 
-BRIGIT HANNA JOHNS -
+BRIGIT HANNA JOHNS - https://github.com/brigithannajohns
 
 GEORGE CHERIAN THALIATH -
 
